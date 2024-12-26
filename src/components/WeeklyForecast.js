@@ -1,12 +1,11 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, {useState} from 'react';
 import config from '../config';
 
-const WeeklyForecast = ({ city }) => {
+const WeeklyForecast = ({ city, background }) => {
     const [forecast, setForecast] = React.useState(null);
     const [error, setError] = React.useState('');
     const [loading, setLoading] = React.useState(false);
-    const navigate = useNavigate();
+    const [weatherData, setWeatherData] = useState(null);
 
     React.useEffect(() => {
         console.log("City in WeeklyForecast:", city); // Debug city prop
@@ -37,6 +36,7 @@ const WeeklyForecast = ({ city }) => {
             const data = await response.json();
             console.log("Forecast data:", data); // Debug API response
             setForecast(data.days.slice(0, 7));
+            setWeatherData(data);
         } catch (err) {
             console.error("Forecast error:", err); // Debug errors
             setError('Hava durumu tahmini alınamadı.');
@@ -50,12 +50,93 @@ const WeeklyForecast = ({ city }) => {
         return date.toLocaleDateString('tr-TR', { weekday: 'long', month: 'long', day: 'numeric' });
     };
 
+    // Arka plan resimlerinin tanımlanması
+    const backgroundImages = {
+        // Kar ve karla ilgili durumlar
+        "kar üfleme": 'url("/weather-backgrounds/snowy.jpg")',
+        "sürüklenen kar": 'url("/weather-backgrounds/snowy.jpg")',
+        "kar": 'url("/weather-backgrounds/snowy.jpg")',
+        "kar sağanakları": 'url("/weather-backgrounds/snowy.jpg")',
+        "yoğun kar": 'url("/weather-backgrounds/snowy.jpg")',
+        "hafif kar": 'url("/weather-backgrounds/snowy.jpg")',
+        "kar ve yağmur sağanakları": 'url("/weather-backgrounds/snowy.jpg")',
+        "hafif yağmur ve kar": 'url("/weather-backgrounds/snowy.jpg")',
+        "şiddetli yağmur ve kar": 'url("/weather-backgrounds/snowy.jpg")',
+
+        // Çiseleme
+        "çiseleme": 'url("/weather-backgrounds/rainy.jpg")',
+        "şiddetli çiseleme": 'url("/weather-backgrounds/rainy.jpg")',
+        "hafif çiseleme": 'url("/weather-backgrounds/rainy.jpg")',
+        "hafif çiseleme/yağmur": 'url("/weather-backgrounds/rainy.jpg")',
+        "şiddetli çiseleme/yağmur": 'url("/weather-backgrounds/rainy.jpg")',
+
+        // Yağmur
+        "yağmur": 'url("/weather-backgrounds/rainy.jpg")',
+        "şiddetli yağmur": 'url("/weather-backgrounds/rainy.jpg")',
+        "yoğun yağış": 'url("/weather-backgrounds/rainy.jpg")',
+        "sağanak yağmur": 'url("/weather-backgrounds/rainy.jpg")',
+        "hafif yağış": 'url("/weather-backgrounds/rainy.jpg")',
+        "yağmur ve kar": 'url("/weather-backgrounds/rainy.jpg")',
+
+        // Sis ve duman
+        "sis": 'url("/weather-backgrounds/cloudy.jpg")',
+        "duman veya pus": 'url("/weather-backgrounds/cloudy.jpg")',
+        "dondurucu sis": 'url("/weather-backgrounds/cloudy.jpg")',
+
+        // Fırtına ve kasırga
+        "fırtına": 'url("/weather-backgrounds/cloudy.jpg")',
+        "fırtınalar": 'url("/weather-backgrounds/cloudy.jpg")',
+        "huni bulutu": 'url("/weather-backgrounds/cloudy.jpg")',
+        "kasırga": 'url("/weather-backgrounds/cloudy.jpg")',
+
+        // Diğer hava koşulları
+        "toz fırtınası": 'url("/weather-backgrounds/default.jpg")',
+        "bulutlu": 'url("/weather-backgrounds/cloudy.jpg")',
+        "parçalı bulutlu": 'url("/weather-backgrounds/cloudy.jpg")',
+        "açık": 'url("/weather-backgrounds/sunny.jpg")',
+        "yıldırımsız yıldırım": 'url("/weather-backgrounds/cloudy.jpg")',
+        "yoğun dondurucu çiseleme/dondurucu yağmur": 'url("/weather-backgrounds/snowy.jpg")',
+        "hafif dondurucu çiseleme/dondurucu yağmur": 'url("/weather-backgrounds/snowy.jpg")',
+        "şiddetli dondurucu yağmur": 'url("/weather-backgrounds/snowy.jpg")',
+        "hafif dondurucu yağmur": 'url("/weather-backgrounds/snowy.jpg")',
+        "çevrede yağış": 'url("/weather-backgrounds/rainy.jpg")',
+        "buz": 'url("/weather-backgrounds/default.jpg")',
+        "elmas tozu": 'url("/weather-backgrounds/default.jpg")',
+        "dolu": 'url("/weather-backgrounds/default.jpg")',
+        "gökyüzü kapsamı azalan": 'url("/weather-backgrounds/cloudy.jpg")',
+        "gökyüzü kapsamı artan": 'url("/weather-backgrounds/cloudy.jpg")',
+        "gökyüzü değişmedi": 'url("/weather-backgrounds/sunny.jpg")',
+    };
+
+    // Hava durumu koşuluna göre arka plan seçimi
+    const getBackground = (condition) => {
+        if (!condition) return backgroundImages["default"];
+
+        condition = condition.toLowerCase();
+        if (condition.includes('açık') || condition.includes('güneşli')) return backgroundImages["açık"];
+        if (condition.includes('kar')) return backgroundImages["kar"];
+        if (condition.includes('yağmur')) return backgroundImages["yağmur"];
+        if (condition.includes('sis') || condition.includes('pus')) return backgroundImages["sis"];
+        if (condition.includes('fırtına') || condition.includes('kasırga')) return backgroundImages["fırtına"];
+        if (condition.includes('toz fırtınası')) return backgroundImages["toz fırtınası"];
+        if (condition.includes('bulut')) return backgroundImages["bulutlu"];
+        return backgroundImages["default"];
+    };
+
     // Debug render state
-    console.log("Render state:", { loading, error, forecast, city });
+    console.log("Background Prop:", background);
 
     // Always render something, even if just loading or error states
     return (
-        <div className="min-vh-100 bg-light py-5">
+        <div className="min-vh-100 bg-light py-5" style={{
+            backgroundImage: weatherData
+                ? getBackground(weatherData.currentConditions?.conditions)
+                : backgroundImages.default,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            transition: 'background-image 0.5s ease'
+        }}>
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-10">
@@ -63,12 +144,7 @@ const WeeklyForecast = ({ city }) => {
                             <div className="card-body">
                                 <div className="d-flex justify-content-between align-items-center mb-4">
                                     <h2 className="mb-0">Haftalık Hava Durumu {city ? `- ${city}` : ''}</h2>
-                                    <button
-                                        className="btn btn-secondary"
-                                        onClick={() => navigate('/')}
-                                    >
-                                        Ana Sayfaya Dön
-                                    </button>
+
                                 </div>
 
                                 {loading && <div className="text-center">Yükleniyor...</div>}

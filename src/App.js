@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import config from './config';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './components/Navbar.css';
-import {Link, Route, Router, Routes} from "react-router-dom";
+import './App.css';
+import {Link, Route, Routes} from "react-router-dom";
 import WeeklyForecast from './components/WeeklyForecast';
 
 const WeatherApp = () => {
@@ -121,6 +122,7 @@ const WeatherApp = () => {
             getWeather();
         }
     };
+
 
     return (
         <div>
