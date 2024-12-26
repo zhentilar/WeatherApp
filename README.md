@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Hava Durumu Uygulaması
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bu proje, React kullanarak geliştirilmiş basit bir hava durumu uygulamasıdır. Kullanıcılar, Visual Crossing API'si aracılığıyla istedikleri şehrin güncel hava durumu bilgilerini öğrenebilirler. Uygulama, sıcaklık, nem oranı, rüzgar hızı ve hava durumu gibi bilgileri kullanıcıya sunar.
 
-## Available Scripts
+## Özellikler
 
-In the project directory, you can run:
+- Şehir adı girerek hava durumu bilgilerini arama.
+- Sıcaklık, nem oranı, rüzgar hızı ve hava durumu bilgilerini görüntüleme.
+- Hava durumuna göre dinamik arka plan görseli.
+- "Hakkında" butonu ile geliştirici bilgilerini gösterme.
 
-### `npm start`
+## Kullanılan Teknolojiler
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**: Kullanıcı arayüzünü oluşturmak için kullanıldı.
+- **Bootstrap**: Uygulamanın stilini ve duyarlı tasarımını sağlamak için kullanıldı.
+- **Visual Crossing API**: Gerçek zamanlı hava durumu verilerini almak için kullanıldı.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Kurulum
 
-### `npm test`
+Bu projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları takip edebilirsiniz:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Reposunu klonlayın:
 
-### `npm run build`
+   bash
+   git clone https://github.com/zhentilar/hava-durumu-uygulamasi.git
+   cd hava-durumu-uygulamasi
+   
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Bağımlılıkları yükleyin:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   
+   npm install
+   
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Projenin kök dizininde bir `.env` dosyası oluşturun ve Visual Crossing API anahtarınızı ekleyin:
 
-### `npm run eject`
+   env
+   REACT_APP_API_KEY=buraya_api_anahtarınız
+   
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Uygulamayı başlatın:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   bash
+   npm start
+   
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Tarayıcınızı açın ve `http://localhost:3000` adresine giderek uygulamanın çalıştığını kontrol edin.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Kullanım
 
-## Learn More
+1. Hava durumu bilgilerini öğrenmek istediğiniz şehri arama kutusuna yazın.
+2. "Ara" butonuna basarak ya da "Enter" tuşuna basarak hava durumu verilerini getirin.
+3. Sıcaklık, nem, rüzgar hızı ve hava durumu gibi bilgiler ekranda görünecektir.
+4. Hava durumuna göre arka plan görseli dinamik olarak değişecektir.
+5. "Hakkında" butonuna tıklayarak geliştirici bilgilerini görebilirsiniz.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Geliştirici Hakkında
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Ad**: Semih Kartal
+- **GitHub**: [zhentilar](https://github.com/zhentilar/)
 
-### Code Splitting
+## Lisans
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Bu proje MIT Lisansı altında lisanslanmıştır - detaylar için [LICENSE](LICENSE) dosyasına bakabilirsiniz.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Bu format, GitHub reposuna uygun olup, projenin nasıl kurulacağı ve kullanılacağıyla ilgili gerekli tüm bilgileri içeriyor.
