@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import config from './config';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './components/Navbar.css';
+import {Link, Route, Router, Routes} from "react-router-dom";
+import WeeklyForecast from './components/WeeklyForecast';
 
 const WeatherApp = () => {
     const [city, setCity] = useState('');
@@ -120,119 +123,137 @@ const WeatherApp = () => {
     };
 
     return (
-        <div
-            className="min-vh-100 d-flex justify-content-center align-items-center py-5"
-            style={{
-                backgroundImage: weatherData
-                    ? getBackground(weatherData.currentConditions?.conditions)
-                    : backgroundImages.default,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                transition: 'background-image 0.5s ease'
-            }}
-        >
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-md-6">
-                        <div className="card shadow-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
-                            <div className="card-body">
-                                <h1 className="text-center mb-4">Hava Durumu</h1>
+        <div>
+        <nav>
+            <ul>
+                <li>
+                    <Link to="/">Ana Sayfa</Link>
+                </li>
+                <li>
+                    <Link to="/haftalik">Haftalık Tahmin</Link>
+                </li>
+            </ul>
+        </nav>
 
-                                <div className="mb-4">
-                                    <div className="input-group">
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            placeholder="Şehir adı girin..."
-                                            value={city}
-                                            onChange={(e) => setCity(e.target.value)}
-                                            onKeyPress={handleKeyPress}
-                                        />
-                                        <button
-                                            className="btn btn-primary"
-                                            onClick={getWeather}
-                                            disabled={loading}
-                                        >
-                                            {loading ? 'Yükleniyor...' : 'Ara'}
-                                        </button>
-                                    </div>
-                                    {error && <div className="text-danger mt-2 text-center">{error}</div>}
-                                </div>
+        <Routes>
+            <Route path="/" element={
+                <div
+                    className="min-vh-100 d-flex justify-content-center align-items-center py-5"
+                    style={{
+                        backgroundImage: weatherData
+                            ? getBackground(weatherData.currentConditions?.conditions)
+                            : backgroundImages.default,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        transition: 'background-image 0.5s ease'
+                    }}
+                >
+                    <div className="container">
+                        <div className="row justify-content-center">
+                            <div className="col-md-6">
+                                <div className="card shadow-lg" style={{backgroundColor: 'rgba(255, 255, 255, 0.9)'}}>
+                                    <div className="card-body">
+                                        <h1 className="text-center mb-4">Hava Durumu</h1>
 
-                                {weatherData && (
-                                    <div className="weather-info">
-                                        <h2 className="text-center mb-3">{weatherData.address}</h2>
-                                        <div className="row text-center">
-                                            <div className="col-md-4 mb-3">
-                                                <div className="card h-100">
-                                                    <div className="card-body">
-                                                        <h5>Sıcaklık</h5>
-                                                        <p className="display-6">
-                                                            {weatherData.currentConditions.temp}°C
-                                                        </p>
-                                                    </div>
-                                                </div>
+                                        <div className="mb-4">
+                                            <div className="input-group">
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    placeholder="Şehir adı girin..."
+                                                    value={city}
+                                                    onChange={(e) => setCity(e.target.value)}
+                                                    onKeyPress={handleKeyPress}
+                                                />
+                                                <button
+                                                    className="btn btn-primary"
+                                                    onClick={getWeather}
+                                                    disabled={loading}
+                                                >
+                                                    {loading ? 'Yükleniyor...' : 'Ara'}
+                                                </button>
                                             </div>
-                                            <div className="col-md-4 mb-3">
-                                                <div className="card h-100">
-                                                    <div className="card-body">
-                                                        <h5>Nem</h5>
-                                                        <p className="display-6">
-                                                            %{weatherData.currentConditions.humidity}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-md-4 mb-3">
-                                                <div className="card h-100">
-                                                    <div className="card-body">
-                                                        <h5>Rüzgar Hızı</h5>
-                                                        <p className="display-6">
-                                                            {weatherData.currentConditions.windspeed} km/s
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col">
-                                                <div className="card h-100 text-center">
-                                                    <div className="card-body">
-                                                        <h5>Hava Olayı</h5>
-                                                        <p className="display-6">
-                                                            {weatherData.currentConditions.conditions}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            {error && <div className="text-danger mt-2 text-center">{error}</div>}
                                         </div>
-                                    </div>
-                                )}
 
-                                <div className="text-center mt-4">
-                                    <button
-                                        className="btn btn-info"
-                                        onClick={() => setShowAbout(!showAbout)}
-                                    >
-                                        Hakkında
-                                    </button>
-                                </div>
-
-                                {showAbout && (
-                                    <div className="mt-3 text-center">
-                                        <div className="card">
-                                            <div className="card-body">
-                                                <h5>Geliştirici</h5>
-                                                <p>İsim: Semih Kartal</p>
-                                                <a href="https://github.com/zhentilar/">GitHub: zhentilar</a>
+                                        {weatherData && (
+                                            <div className="weather-info">
+                                                <h2 className="text-center mb-3">{weatherData.address}</h2>
+                                                <div className="row text-center">
+                                                    <div className="col-md-4 mb-3">
+                                                        <div className="card h-100">
+                                                            <div className="card-body">
+                                                                <h5>Sıcaklık</h5>
+                                                                <p className="display-6">
+                                                                    {weatherData.currentConditions.temp}°C
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-4 mb-3">
+                                                        <div className="card h-100">
+                                                            <div className="card-body">
+                                                                <h5>Nem</h5>
+                                                                <p className="display-6">
+                                                                    %{weatherData.currentConditions.humidity}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-4 mb-3">
+                                                        <div className="card h-100">
+                                                            <div className="card-body">
+                                                                <h5>Rüzgar Hızı</h5>
+                                                                <p className="display-6">
+                                                                    {weatherData.currentConditions.windspeed} km/s
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col">
+                                                        <div className="card h-100 text-center">
+                                                            <div className="card-body">
+                                                                <h5>Hava Olayı</h5>
+                                                                <p className="display-6">
+                                                                    {weatherData.currentConditions.conditions}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+                                        )}
+
+                                        <div className="text-center mt-4">
+                                            <button
+                                                className="btn btn-info"
+                                                onClick={() => setShowAbout(!showAbout)}
+                                            >
+                                                Hakkında
+                                            </button>
                                         </div>
+
+                                        {showAbout && (
+                                            <div className="mt-3 text-center">
+                                                <div className="card">
+                                                    <div className="card-body">
+                                                        <h5>Geliştirici</h5>
+                                                        <p>İsim: Semih Kartal</p>
+                                                        <a href="https://github.com/zhentilar/">GitHub: zhentilar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
-                                )}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }/>
+            <Route path="/haftalik" element={<WeeklyForecast city={city} />}/>
+        </Routes>
         </div>
     );
 };
