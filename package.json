@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "Bu proje, React kullanarak geliştirilmiş basit bir hava durumu uygulamasıdır. Kullanıcılar, Visual Crossing API'si aracılığıyla istedikleri şehrin güncel hava durumu bilgilerini öğrenebilirler. Uygulama, sıcaklık, nem oranı, rüzgar hızı ve hava durumu gibi bilgileri kullanıcıya sunar.",
   "main": "index.js",
+  "homepage": "https://zhentilar.github.io/react-gh-pages",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -31,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
   }
 }
