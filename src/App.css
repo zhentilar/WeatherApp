@@ -50,3 +50,6 @@ body.dark-mode {
 .toggle-button.dark-mode {
   background-color: #6c757d;
 }
+.background {
+  background-attachment: fixed;
+}
