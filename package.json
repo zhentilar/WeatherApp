@@ -1,6 +1,6 @@
 {
   "name": "weatherapp",
-  "homepage": "http://zhentilar.github.io/weatherapp",
+  "homepage": "http://zhentilar.github.io",
   "version": "1.0.0",
   "description": "Bu proje, React kullanarak geliştirilmiş basit bir hava durumu uygulamasıdır. Kullanıcılar, Visual Crossing API'si aracılığıyla istedikleri şehrin güncel hava durumu bilgilerini öğrenebilirler. Uygulama, sıcaklık, nem oranı, rüzgar hızı ve hava durumu gibi bilgileri kullanıcıya sunar.",
   "main": "index.js",
