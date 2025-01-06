@@ -37,19 +37,7 @@
   }
 }
 
-body.dark-mode {
-  background-color: #121212;
-  color: white;
-}
-
-.App.dark-mode {
-  background-color: #333;
-  color: white;
-}
-
-.toggle-button.dark-mode {
-  background-color: #6c757d;
-}
 .background {
   background-attachment: fixed;
+  background-size: cover;
 }

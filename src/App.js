@@ -71,6 +71,8 @@ const WeatherApp = () => {
         "gökyüzü kapsamı azalan": 'url("/weather-backgrounds/cloudy.jpg")',
         "gökyüzü kapsamı artan": 'url("/weather-backgrounds/cloudy.jpg")',
         "gökyüzü değişmedi": 'url("/weather-backgrounds/sunny.jpg")',
+
+        "default": 'url("/weather-backgrounds/default.jpg")',
     };
 
     // Hava durumu koşuluna göre arka plan seçimi
@@ -123,6 +125,9 @@ const WeatherApp = () => {
         }
     };
 
+    // Inside your component, just before return:
+    console.log("Current background:", weatherData?.currentConditions?.conditions);
+    console.log("Selected background:", weatherData ? getBackground(weatherData.currentConditions?.conditions) : backgroundImages.default);
 
     return (
         <div>
