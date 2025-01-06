@@ -140,7 +140,7 @@ const WeeklyForecast = ({ city, background }) => {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-10">
-                        <div className="card shadow" style={{backgroundColor: 'rgba(255, 255, 255, 0.9)'}}>
+                        <div className="card shadow" style={{backgroundColor: 'rgba(255, 255, 255, 0.9)'}}>>
                             <div className="card-body">
                                 <div className="d-flex justify-content-between align-items-center mb-4">
                                     <h2 className="mb-0">Haftalık Hava Durumu {city ? `- ${city}` : ''}</h2>
