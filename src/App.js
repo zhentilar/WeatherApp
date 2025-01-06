@@ -18,61 +18,61 @@ const WeatherApp = () => {
     // Arka plan resimlerinin tanımlanması
     const backgroundImages = {
         // Kar ve karla ilgili durumlar
-        "kar üfleme": 'url("/weather-backgrounds/snowy.jpg")',
-        "sürüklenen kar": 'url("/weather-backgrounds/snowy.jpg")',
-        "kar": 'url("/weather-backgrounds/snowy.jpg")',
-        "kar sağanakları": 'url("/weather-backgrounds/snowy.jpg")',
-        "yoğun kar": 'url("/weather-backgrounds/snowy.jpg")',
-        "hafif kar": 'url("/weather-backgrounds/snowy.jpg")',
-        "kar ve yağmur sağanakları": 'url("/weather-backgrounds/snowy.jpg")',
-        "hafif yağmur ve kar": 'url("/weather-backgrounds/snowy.jpg")',
-        "şiddetli yağmur ve kar": 'url("/weather-backgrounds/snowy.jpg")',
+        "kar üfleme": 'url("/weatherapp/weather-backgrounds/snowy.jpg")',
+        "sürüklenen kar": 'url("/weatherapp/weather-backgrounds/snowy.jpg")',
+        "kar": 'url("/weatherapp/weather-backgrounds/snowy.jpg")',
+        "kar sağanakları": 'url("/weatherapp/weather-backgrounds/snowy.jpg")',
+        "yoğun kar": 'url("/weatherapp/weather-backgrounds/snowy.jpg")',
+        "hafif kar": 'url("/weatherapp/weather-backgrounds/snowy.jpg")',
+        "kar ve yağmur sağanakları": 'url("/weatherapp/weather-backgrounds/snowy.jpg")',
+        "hafif yağmur ve kar": 'url("/weatherapp/weather-backgrounds/snowy.jpg")',
+        "şiddetli yağmur ve kar": 'url("/weatherapp/weather-backgrounds/snowy.jpg")',
 
         // Çiseleme
-        "çiseleme": 'url("/weather-backgrounds/rainy.jpg")',
-        "şiddetli çiseleme": 'url("/weather-backgrounds/rainy.jpg")',
-        "hafif çiseleme": 'url("/weather-backgrounds/rainy.jpg")',
-        "hafif çiseleme/yağmur": 'url("/weather-backgrounds/rainy.jpg")',
-        "şiddetli çiseleme/yağmur": 'url("/weather-backgrounds/rainy.jpg")',
+        "çiseleme": 'url("/weatherapp/weather-backgrounds/rainy.jpg")',
+        "şiddetli çiseleme": 'url("/weatherapp/weather-backgrounds/rainy.jpg")',
+        "hafif çiseleme": 'url("/weatherapp/weather-backgrounds/rainy.jpg")',
+        "hafif çiseleme/yağmur": 'url("/weatherapp/weather-backgrounds/rainy.jpg")',
+        "şiddetli çiseleme/yağmur": 'url("/weatherapp/weather-backgrounds/rainy.jpg")',
 
         // Yağmur
-        "yağmur": 'url("/weather-backgrounds/rainy.jpg")',
-        "şiddetli yağmur": 'url("/weather-backgrounds/rainy.jpg")',
-        "yoğun yağış": 'url("/weather-backgrounds/rainy.jpg")',
-        "sağanak yağmur": 'url("/weather-backgrounds/rainy.jpg")',
-        "hafif yağış": 'url("/weather-backgrounds/rainy.jpg")',
-        "yağmur ve kar": 'url("/weather-backgrounds/rainy.jpg")',
+        "yağmur": 'url("/weatherapp/weather-backgrounds/rainy.jpg")',
+        "şiddetli yağmur": 'url("/weatherapp/weather-backgrounds/rainy.jpg")',
+        "yoğun yağış": 'url("/weatherapp/weather-backgrounds/rainy.jpg")',
+        "sağanak yağmur": 'url("/weatherapp/weather-backgrounds/rainy.jpg")',
+        "hafif yağış": 'url("/weatherapp/weather-backgrounds/rainy.jpg")',
+        "yağmur ve kar": 'url("/weatherapp/weather-backgrounds/rainy.jpg")',
 
         // Sis ve duman
-        "sis": 'url("/weather-backgrounds/cloudy.jpg")',
-        "duman veya pus": 'url("/weather-backgrounds/cloudy.jpg")',
-        "dondurucu sis": 'url("/weather-backgrounds/cloudy.jpg")',
+        "sis": 'url("/weatherapp/weather-backgrounds/cloudy.jpg")',
+        "duman veya pus": 'url("/weatherapp/weather-backgrounds/cloudy.jpg")',
+        "dondurucu sis": 'url("/weatherapp/weather-backgrounds/cloudy.jpg")',
 
         // Fırtına ve kasırga
-        "fırtına": 'url("/weather-backgrounds/cloudy.jpg")',
-        "fırtınalar": 'url("/weather-backgrounds/cloudy.jpg")',
-        "huni bulutu": 'url("/weather-backgrounds/cloudy.jpg")',
-        "kasırga": 'url("/weather-backgrounds/cloudy.jpg")',
+        "fırtına": 'url("/weatherapp/weather-backgrounds/cloudy.jpg")',
+        "fırtınalar": 'url("/weatherapp/weather-backgrounds/cloudy.jpg")',
+        "huni bulutu": 'url("/weatherapp/weather-backgrounds/cloudy.jpg")',
+        "kasırga": 'url("/weatherapp/weather-backgrounds/cloudy.jpg")',
 
         // Diğer hava koşulları
-        "toz fırtınası": 'url("/weather-backgrounds/default.jpg")',
-        "bulutlu": 'url("/weather-backgrounds/cloudy.jpg")',
-        "parçalı bulutlu": 'url("/weather-backgrounds/cloudy.jpg")',
-        "açık": 'url("/weather-backgrounds/sunny.jpg")',
-        "yıldırımsız yıldırım": 'url("/weather-backgrounds/cloudy.jpg")',
-        "yoğun dondurucu çiseleme/dondurucu yağmur": 'url("/weather-backgrounds/snowy.jpg")',
-        "hafif dondurucu çiseleme/dondurucu yağmur": 'url("/weather-backgrounds/snowy.jpg")',
-        "şiddetli dondurucu yağmur": 'url("/weather-backgrounds/snowy.jpg")',
-        "hafif dondurucu yağmur": 'url("/weather-backgrounds/snowy.jpg")',
-        "çevrede yağış": 'url("/weather-backgrounds/rainy.jpg")',
-        "buz": 'url("/weather-backgrounds/default.jpg")',
-        "elmas tozu": 'url("/weather-backgrounds/default.jpg")',
-        "dolu": 'url("/weather-backgrounds/default.jpg")',
-        "gökyüzü kapsamı azalan": 'url("/weather-backgrounds/cloudy.jpg")',
-        "gökyüzü kapsamı artan": 'url("/weather-backgrounds/cloudy.jpg")',
-        "gökyüzü değişmedi": 'url("/weather-backgrounds/sunny.jpg")',
+        "toz fırtınası": 'url("/weatherapp/weather-backgrounds/default.jpg")',
+        "bulutlu": 'url("/weatherapp/weather-backgrounds/cloudy.jpg")',
+        "parçalı bulutlu": 'url("/weatherapp/weather-backgrounds/cloudy.jpg")',
+        "açık": 'url("/weatherapp/weather-backgrounds/sunny.jpg")',
+        "yıldırımsız yıldırım": 'url("/weatherapp/weather-backgrounds/cloudy.jpg")',
+        "yoğun dondurucu çiseleme/dondurucu yağmur": 'url("/weatherapp/weather-backgrounds/snowy.jpg")',
+        "hafif dondurucu çiseleme/dondurucu yağmur": 'url("/weatherapp/weather-backgrounds/snowy.jpg")',
+        "şiddetli dondurucu yağmur": 'url("/weatherapp/weather-backgrounds/snowy.jpg")',
+        "hafif dondurucu yağmur": 'url("/weatherapp/weather-backgrounds/snowy.jpg")',
+        "çevrede yağış": 'url("/weatherapp/weather-backgrounds/rainy.jpg")',
+        "buz": 'url("/weatherapp/weather-backgrounds/default.jpg")',
+        "elmas tozu": 'url("/weatherapp/weather-backgrounds/default.jpg")',
+        "dolu": 'url("/weatherapp/weather-backgrounds/default.jpg")',
+        "gökyüzü kapsamı azalan": 'url("/weatherapp/weather-backgrounds/cloudy.jpg")',
+        "gökyüzü kapsamı artan": 'url("/weatherapp/weather-backgrounds/cloudy.jpg")',
+        "gökyüzü değişmedi": 'url("/weatherapp/weather-backgrounds/sunny.jpg")',
 
-        "default": 'url("/weather-backgrounds/default.jpg")',
+        "default": 'url("/weatherapp/weather-backgrounds/default.jpg")',
     };
 
     // Hava durumu koşuluna göre arka plan seçimi
@@ -134,7 +134,7 @@ const WeatherApp = () => {
         <nav>
             <ul>
                 <li>
-                    <Link to="/">Ana Sayfa</Link>
+                    <Link to="/weatherapp">Ana Sayfa</Link>
                 </li>
                 <li>
                     <Link to="/haftalik">Haftalık Tahmin</Link>
@@ -143,7 +143,7 @@ const WeatherApp = () => {
         </nav>
 
         <Routes>
-            <Route path="/" element={
+            <Route path="/weatherapp" element={
                 <div
                     className="min-vh-100 d-flex justify-content-center align-items-center py-5"
                     style={{
