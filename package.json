@@ -21,6 +21,7 @@
     "file-loader": "^6.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-manifest": "^1.0.5",
     "react-router-dom": "^7.1.1",
     "react-scripts": "^5.0.1",
     "url-loader": "^4.1.1",
