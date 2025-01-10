@@ -237,7 +237,7 @@ const WeatherApp = () => {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div className="col-6 col-md-4 mb-3">
+                                                        <div className="col-6 col-md-12 mb-3">
                                                             <div className="card h-100 text-center">
                                                                 <div className="card-body">
                                                                     <h5>Hava Olayı</h5>
